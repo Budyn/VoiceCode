@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16C32f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Record View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="RecordViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="RecorderView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FQ6-nw-s60">
+                                <rect key="frame" x="16" y="28" width="343" height="86"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Voice recording" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWu-7r-v3A">
+                                        <rect key="frame" x="8" y="7.5" width="118.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="YAm-D3-n1u">
+                                        <rect key="frame" x="52" y="48" width="238" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6C6-3J-7LD">
+                                                <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+                                                <state key="normal" title="Button">
+                                                    <color key="titleColor" red="1" green="0.38872817549999999" blue="0.3857750928" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="recordButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8R8-gL-OiL"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CFg-4l-2Kt">
+                                                <rect key="frame" x="96" y="0.0" width="46" height="30"/>
+                                                <state key="normal" title="Button">
+                                                    <color key="titleColor" red="1" green="0.38872817549999999" blue="0.3857750928" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="stopButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ebk-Nj-H5b"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bk4-GG-shl">
+                                                <rect key="frame" x="192" y="0.0" width="46" height="30"/>
+                                                <state key="normal" title="Button">
+                                                    <color key="titleColor" red="1" green="0.38872817549999999" blue="0.3857750928" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="playButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vUz-W8-8Ph"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.92294973540000003" green="0.92294973540000003" blue="0.92294973540000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="FQ6-nw-s60" secondAttribute="height" multiplier="343:86" id="9gY-SA-AUx"/>
+                                    <constraint firstItem="YAm-D3-n1u" firstAttribute="top" secondItem="QWu-7r-v3A" secondAttribute="bottom" constant="20" id="ENI-2e-LtT"/>
+                                    <constraint firstItem="QWu-7r-v3A" firstAttribute="leading" secondItem="FQ6-nw-s60" secondAttribute="leadingMargin" id="FDR-UB-QlX"/>
+                                    <constraint firstItem="YAm-D3-n1u" firstAttribute="bottom" secondItem="FQ6-nw-s60" secondAttribute="bottomMargin" id="Mv9-N7-hbW"/>
+                                    <constraint firstItem="YAm-D3-n1u" firstAttribute="centerX" secondItem="FQ6-nw-s60" secondAttribute="centerX" id="vrU-yA-Do8"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="FQ6-nw-s60" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="Bgr-8w-wkA"/>
+                            <constraint firstItem="FQ6-nw-s60" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="HGY-oR-cLw"/>
+                            <constraint firstItem="FQ6-nw-s60" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="iMo-pc-nie"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="playButton" destination="bk4-GG-shl" id="thl-Cz-16t"/>
+                            <outlet property="recordButton" destination="6C6-3J-7LD" id="rgg-Dz-WdU"/>
+                            <outlet property="stopButton" destination="CFg-4l-2Kt" id="qvT-cF-oDH"/>
+                            <outlet property="voiceRecordingControlView" destination="FQ6-nw-s60" id="7kA-QW-HRO"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="recorderView" destination="8bC-Xf-vdC" id="xXt-yk-mD8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="99.400299850074973"/>
+        </scene>
+    </scenes>
+</document>
