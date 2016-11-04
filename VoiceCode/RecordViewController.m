@@ -23,10 +23,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.recorder = [[Recorder alloc] initWithFormat:kAudioFormatMPEG4AAC sampleRate:10000 channelNumber:2 fileName:@"file.m4a"];
+    self.recorder = [[Recorder alloc] initWithFormat:kAudioFormatMPEG4AAC sampleRate:100 channelNumber:2 fileName:@"sound.m4a"];
     self.recorder.voiceRecorder.delegate = self;
-    self.recorder.voicePlayer.delegate = self;
-    self.recorder.voicePlayer.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -68,6 +66,12 @@
 }
 - (IBAction)playButtonTapped:(id)sender {
     if (!self.recorder.voiceRecorder.recording) {
+        NSError *error = nil;
+        self.recorder.voicePlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:self.recorder.voiceRecorder.url error:&error];
+        if (error) {
+            [error fullDescription];
+        }
+        self.recorder.voicePlayer.delegate = self;
         [self.recorder.voicePlayer play];
     }
 }

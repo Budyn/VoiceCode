@@ -24,7 +24,7 @@
     if (self) {
         // RECORDER
         _recordingSettings = @{ AVFormatIDKey : [NSNumber numberWithInt:(int)audioFormat],
-                                AVSampleRateKey : [NSNumber numberWithFloat:sampleRate],
+                                AVSampleRateKey : [NSNumber numberWithFloat:(float)sampleRate],
                                 AVNumberOfChannelsKey : [NSNumber numberWithInt:(int)channelNumber] };
         NSString *documentsDirectoryPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
         NSArray *pathComponents = [NSArray arrayWithObjects: documentsDirectoryPath, fileName, nil];
@@ -46,14 +46,6 @@
                 self.voiceRecorder.meteringEnabled = YES;
             }
         }
-        
-        // PLAYER
-        error = nil;
-        self.voicePlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:self.voiceRecorder.url error:&error];
-        if (error) {
-            [error fullDescription];
-        }
-        
     }
     return self;
 }

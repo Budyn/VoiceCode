@@ -17,6 +17,12 @@
 @property (weak, nonatomic) IBOutlet UIView *progressContainerView;
 @property (weak, nonatomic) IBOutlet UIView *recordingInformationView;
 
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *durationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *formatLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sampleRateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *channelsLabel;
+
 @property (strong, nonatomic) MMMaterialDesignSpinner *spinner;
 
 @end
