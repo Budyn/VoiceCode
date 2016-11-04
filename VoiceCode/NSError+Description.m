@@ -9,7 +9,7 @@
 #import "NSError+Description.h"
 
 @implementation NSError(Description)
-- (void)description {
+- (void)fullDescription {
     NSLog(@"Domain: %@", self.domain);
     NSLog(@"Error Code: %ld", (long)self.code);
     NSLog(@"Description: %@", [self localizedDescription]);

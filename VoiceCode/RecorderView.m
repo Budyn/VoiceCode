@@ -6,12 +6,18 @@
 //  Copyright © 2016 Budyn&Friends. All rights reserved.
 //
 
+#import <MMMaterialDesignSpinner/MMMaterialDesignSpinner.h>
 #import "RecorderView.h"
+
 @interface RecorderView()
 @property (weak, nonatomic) IBOutlet UIView *voiceRecordingControlView;
 @property (weak, nonatomic) IBOutlet UIButton *recordButton;
 @property (weak, nonatomic) IBOutlet UIButton *stopButton;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
+@property (weak, nonatomic) IBOutlet UIView *progressContainerView;
+@property (weak, nonatomic) IBOutlet UIView *recordingInformationView;
+
+@property (strong, nonatomic) MMMaterialDesignSpinner *spinner;
 
 @end
 
@@ -26,6 +32,15 @@
     
     self.voiceRecordingControlView.clipsToBounds = YES;
     self.voiceRecordingControlView.layer.cornerRadius = 10;
+    
+    self.spinner = [[MMMaterialDesignSpinner alloc] initWithFrame:CGRectMake(0, 0, 58, 58)];
+    self.spinner.lineWidth = 1.0f;
+    self.spinner.tintColor = [UIColor redColor];
+    [self.progressContainerView addSubview:self.spinner];
+    
+    self.recordingInformationView.clipsToBounds = YES;
+    self.recordingInformationView.layer.cornerRadius = 10;
+    
 }
 
 - (void)setRecordButtonTitle:(NSString *)title {
@@ -38,6 +53,14 @@
 
 - (void)setPlayButtonTitle:(NSString *)title {
     [self.playButton setTitle:title forState:UIControlStateNormal];
+}
+
+- (void)startSpinningAnimation {
+    [self.spinner startAnimating];
+}
+
+- (void)stopSpinningAnimation {
+    [self.spinner stopAnimating];
 }
 
 @end

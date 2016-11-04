@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ADFE9D1C8D208C420D9AFECB /* libPods-VoiceCode.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C431E86003561EC14FAED2B5 /* libPods-VoiceCode.a */; };
 		AF0089E81DCBFA5C00B4087A /* NSError+Description.m in Sources */ = {isa = PBXBuildFile; fileRef = AF0089E71DCBFA5C00B4087A /* NSError+Description.m */; };
 		AF0089EB1DCBFB1700B4087A /* RecorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF0089EA1DCBFB1700B4087A /* RecorderView.m */; };
 		AF0089EE1DCC0E9100B4087A /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF0089ED1DCC0E9100B4087A /* RecordViewController.m */; };
+		AF0089F61DCD1A0600B4087A /* Recorder.m in Sources */ = {isa = PBXBuildFile; fileRef = AF0089F51DCD1A0600B4087A /* Recorder.m */; };
 		AF8A55AB1DCA9E920098B5C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AF8A55AA1DCA9E920098B5C0 /* main.m */; };
 		AF8A55AE1DCA9E920098B5C0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AF8A55AD1DCA9E920098B5C0 /* AppDelegate.m */; };
 		AF8A55B41DCA9E920098B5C0 /* Recorder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF8A55B21DCA9E920098B5C0 /* Recorder.storyboard */; };
@@ -19,12 +21,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0868093427F49E89F4138123 /* Pods-VoiceCode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoiceCode.release.xcconfig"; path = "Pods/Target Support Files/Pods-VoiceCode/Pods-VoiceCode.release.xcconfig"; sourceTree = "<group>"; };
+		41405D5DB92B0E4819EB625E /* Pods-VoiceCode.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoiceCode.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VoiceCode/Pods-VoiceCode.debug.xcconfig"; sourceTree = "<group>"; };
 		AF0089E61DCBFA5C00B4087A /* NSError+Description.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+Description.h"; sourceTree = "<group>"; };
 		AF0089E71DCBFA5C00B4087A /* NSError+Description.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+Description.m"; sourceTree = "<group>"; };
 		AF0089E91DCBFB1700B4087A /* RecorderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecorderView.h; sourceTree = "<group>"; };
 		AF0089EA1DCBFB1700B4087A /* RecorderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecorderView.m; sourceTree = "<group>"; };
 		AF0089EC1DCC0E9100B4087A /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordViewController.h; sourceTree = "<group>"; };
 		AF0089ED1DCC0E9100B4087A /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordViewController.m; sourceTree = "<group>"; };
+		AF0089F41DCD1A0600B4087A /* Recorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recorder.h; sourceTree = "<group>"; };
+		AF0089F51DCD1A0600B4087A /* Recorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recorder.m; sourceTree = "<group>"; };
 		AF8A55A61DCA9E920098B5C0 /* VoiceCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoiceCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF8A55AA1DCA9E920098B5C0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AF8A55AC1DCA9E920098B5C0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -34,6 +40,7 @@
 		AF8A55B81DCA9E920098B5C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF8A55BA1DCA9E920098B5C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF8A55C41DCAA0AE0098B5C0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		C431E86003561EC14FAED2B5 /* libPods-VoiceCode.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VoiceCode.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,18 +49,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF8A55C51DCAA0AE0098B5C0 /* AVFoundation.framework in Frameworks */,
+				ADFE9D1C8D208C420D9AFECB /* libPods-VoiceCode.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		058224F4F55652B7490FCB2F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				41405D5DB92B0E4819EB625E /* Pods-VoiceCode.debug.xcconfig */,
+				0868093427F49E89F4138123 /* Pods-VoiceCode.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		AF8A559D1DCA9E920098B5C0 = {
 			isa = PBXGroup;
 			children = (
 				AF8A55A81DCA9E920098B5C0 /* VoiceCode */,
 				AF8A55A71DCA9E920098B5C0 /* Products */,
 				AF8A55C31DCAA0AD0098B5C0 /* Frameworks */,
+				058224F4F55652B7490FCB2F /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,10 +88,12 @@
 			children = (
 				AF8A55AC1DCA9E920098B5C0 /* AppDelegate.h */,
 				AF8A55AD1DCA9E920098B5C0 /* AppDelegate.m */,
-				AF0089E91DCBFB1700B4087A /* RecorderView.h */,
 				AF0089EC1DCC0E9100B4087A /* RecordViewController.h */,
 				AF0089ED1DCC0E9100B4087A /* RecordViewController.m */,
+				AF0089E91DCBFB1700B4087A /* RecorderView.h */,
 				AF0089EA1DCBFB1700B4087A /* RecorderView.m */,
+				AF0089F41DCD1A0600B4087A /* Recorder.h */,
+				AF0089F51DCD1A0600B4087A /* Recorder.m */,
 				AF8A55B21DCA9E920098B5C0 /* Recorder.storyboard */,
 				AF8A55B51DCA9E920098B5C0 /* Assets.xcassets */,
 				AF8A55B71DCA9E920098B5C0 /* LaunchScreen.storyboard */,
@@ -97,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				AF8A55C41DCAA0AE0098B5C0 /* AVFoundation.framework */,
+				C431E86003561EC14FAED2B5 /* libPods-VoiceCode.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -108,9 +129,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AF8A55BD1DCA9E920098B5C0 /* Build configuration list for PBXNativeTarget "VoiceCode" */;
 			buildPhases = (
+				6426D380735CE34B30EA3292 /* [CP] Check Pods Manifest.lock */,
 				AF8A55A21DCA9E920098B5C0 /* Sources */,
 				AF8A55A31DCA9E920098B5C0 /* Frameworks */,
 				AF8A55A41DCA9E920098B5C0 /* Resources */,
+				29AB7AF3F41190CCD049B1D7 /* [CP] Embed Pods Frameworks */,
+				BB6705BA160639C282EA0E2F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -168,6 +192,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		29AB7AF3F41190CCD049B1D7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VoiceCode/Pods-VoiceCode-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6426D380735CE34B30EA3292 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BB6705BA160639C282EA0E2F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VoiceCode/Pods-VoiceCode-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AF8A55A21DCA9E920098B5C0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -178,6 +250,7 @@
 				AF0089E81DCBFA5C00B4087A /* NSError+Description.m in Sources */,
 				AF8A55AB1DCA9E920098B5C0 /* main.m in Sources */,
 				AF0089EE1DCC0E9100B4087A /* RecordViewController.m in Sources */,
+				AF0089F61DCD1A0600B4087A /* Recorder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,6 +294,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -269,6 +343,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -295,6 +370,7 @@
 		};
 		AF8A55BE1DCA9E920098B5C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 41405D5DB92B0E4819EB625E /* Pods-VoiceCode.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = AD6M7L74H7;
@@ -308,6 +384,7 @@
 		};
 		AF8A55BF1DCA9E920098B5C0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0868093427F49E89F4138123 /* Pods-VoiceCode.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = AD6M7L74H7;

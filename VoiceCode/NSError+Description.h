@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface NSError(Description)
-- (void)description;
+- (void)fullDescription;
 
 @end

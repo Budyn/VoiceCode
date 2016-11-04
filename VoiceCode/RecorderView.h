@@ -10,5 +10,7 @@
 
 @interface RecorderView : UIView
 - (void)setRecordButtonTitle:(NSString *)title;
+- (void)startSpinningAnimation;
+- (void)stopSpinningAnimation;
 
 @end

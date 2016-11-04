@@ -23,19 +23,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FQ6-nw-s60">
-                                <rect key="frame" x="16" y="28" width="343" height="86"/>
+                                <rect key="frame" x="16" y="49" width="343" height="86"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Voice recording" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWu-7r-v3A">
-                                        <rect key="frame" x="8" y="7.5" width="118.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ggd-x6-9Be">
+                                        <rect key="frame" x="279" y="12" width="58" height="58"/>
+                                        <color key="backgroundColor" red="1" green="0.97647058823529409" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Ggd-x6-9Be" secondAttribute="height" multiplier="1:1" id="93j-G7-L0z"/>
+                                            <constraint firstAttribute="height" constant="58" id="f0q-e1-GR3"/>
+                                            <constraint firstAttribute="width" constant="58" id="hgs-2x-tVN"/>
+                                        </constraints>
+                                    </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="YAm-D3-n1u">
-                                        <rect key="frame" x="52" y="48" width="238" height="30"/>
+                                        <rect key="frame" x="0.0" y="19" width="273" height="34"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6C6-3J-7LD">
-                                                <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="59" height="34"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                 <state key="normal" title="Button">
                                                     <color key="titleColor" red="1" green="0.38872817549999999" blue="0.3857750928" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
@@ -44,7 +48,8 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CFg-4l-2Kt">
-                                                <rect key="frame" x="96" y="0.0" width="46" height="30"/>
+                                                <rect key="frame" x="109" y="0.0" width="57" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                 <state key="normal" title="Button">
                                                     <color key="titleColor" red="1" green="0.38872817549999999" blue="0.3857750928" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
@@ -53,7 +58,8 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bk4-GG-shl">
-                                                <rect key="frame" x="192" y="0.0" width="46" height="30"/>
+                                                <rect key="frame" x="216" y="0.0" width="57" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                 <state key="normal" title="Button">
                                                     <color key="titleColor" red="1" green="0.38872817549999999" blue="0.3857750928" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
@@ -64,25 +70,49 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.92294973540000003" green="0.92294973540000003" blue="0.92294973540000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="1" green="0.97647058819999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="FQ6-nw-s60" secondAttribute="height" multiplier="343:86" id="9gY-SA-AUx"/>
-                                    <constraint firstItem="YAm-D3-n1u" firstAttribute="top" secondItem="QWu-7r-v3A" secondAttribute="bottom" constant="20" id="ENI-2e-LtT"/>
-                                    <constraint firstItem="QWu-7r-v3A" firstAttribute="leading" secondItem="FQ6-nw-s60" secondAttribute="leadingMargin" id="FDR-UB-QlX"/>
-                                    <constraint firstItem="YAm-D3-n1u" firstAttribute="bottom" secondItem="FQ6-nw-s60" secondAttribute="bottomMargin" id="Mv9-N7-hbW"/>
-                                    <constraint firstItem="YAm-D3-n1u" firstAttribute="centerX" secondItem="FQ6-nw-s60" secondAttribute="centerX" id="vrU-yA-Do8"/>
+                                    <constraint firstItem="YAm-D3-n1u" firstAttribute="bottom" secondItem="FQ6-nw-s60" secondAttribute="bottomMargin" constant="-25" id="Mv9-N7-hbW"/>
+                                    <constraint firstItem="Ggd-x6-9Be" firstAttribute="trailing" secondItem="FQ6-nw-s60" secondAttribute="trailingMargin" constant="2" id="SB0-jZ-Lw6"/>
+                                    <constraint firstItem="Ggd-x6-9Be" firstAttribute="centerY" secondItem="YAm-D3-n1u" secondAttribute="centerY" constant="5" id="Tds-ik-GmP"/>
+                                    <constraint firstItem="YAm-D3-n1u" firstAttribute="centerX" secondItem="FQ6-nw-s60" secondAttribute="centerX" constant="-35" id="vrU-yA-Do8"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b9g-5P-pKL">
+                                <rect key="frame" x="16" y="158" width="343" height="86"/>
+                                <color key="backgroundColor" red="1" green="0.97647058819999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="b9g-5P-pKL" secondAttribute="height" multiplier="343:86" id="tNJ-DA-vO0"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Voice recording" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWu-7r-v3A">
+                                <rect key="frame" x="16" y="28" width="119" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="1Uq-TW-LrE"/>
+                                    <constraint firstAttribute="width" constant="119" id="6uE-d2-TE2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="FQ6-nw-s60" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="Bgr-8w-wkA"/>
-                            <constraint firstItem="FQ6-nw-s60" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="HGY-oR-cLw"/>
-                            <constraint firstItem="FQ6-nw-s60" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="iMo-pc-nie"/>
+                            <constraint firstItem="FQ6-nw-s60" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="29" id="Bgr-8w-wkA"/>
+                            <constraint firstItem="QWu-7r-v3A" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="IqO-Hu-xcs"/>
+                            <constraint firstItem="b9g-5P-pKL" firstAttribute="trailing" secondItem="FQ6-nw-s60" secondAttribute="trailing" id="WVH-Vh-Byp"/>
+                            <constraint firstItem="FQ6-nw-s60" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="gzp-cc-wVT"/>
+                            <constraint firstItem="b9g-5P-pKL" firstAttribute="leading" secondItem="FQ6-nw-s60" secondAttribute="leading" id="oNF-Nq-CoH"/>
+                            <constraint firstItem="QWu-7r-v3A" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="qrR-4y-5mR"/>
+                            <constraint firstItem="b9g-5P-pKL" firstAttribute="top" secondItem="FQ6-nw-s60" secondAttribute="bottom" constant="23" id="ya0-S2-sn0"/>
+                            <constraint firstItem="QWu-7r-v3A" firstAttribute="leading" secondItem="FQ6-nw-s60" secondAttribute="leading" id="zUo-wv-xuS"/>
                         </constraints>
                         <connections>
                             <outlet property="playButton" destination="bk4-GG-shl" id="thl-Cz-16t"/>
+                            <outlet property="progressContainerView" destination="Ggd-x6-9Be" id="k2s-W3-qN6"/>
                             <outlet property="recordButton" destination="6C6-3J-7LD" id="rgg-Dz-WdU"/>
+                            <outlet property="recordingInformationView" destination="b9g-5P-pKL" id="xCe-gA-4JC"/>
                             <outlet property="stopButton" destination="CFg-4l-2Kt" id="qvT-cF-oDH"/>
                             <outlet property="voiceRecordingControlView" destination="FQ6-nw-s60" id="7kA-QW-HRO"/>
                         </connections>

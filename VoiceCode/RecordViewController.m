@@ -9,14 +9,13 @@
 #import <AVFoundation/AVFoundation.h>
 #import "RecordViewController.h"
 #import "RecorderView.h"
+#import "Recorder.h"
 
 #import "NSError+Description.h"
 
 @interface RecordViewController () <AVAudioRecorderDelegate, AVAudioPlayerDelegate>
 @property (strong, nonatomic) IBOutlet RecorderView *recorderView;
-
-@property (strong, nonatomic) AVAudioRecorder *voiceRecorder;
-@property (strong, nonatomic) AVAudioPlayer *voicePlayer;
+@property (strong, nonatomic) Recorder *recorder;
 
 @end
 
@@ -24,32 +23,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Path to file
-    NSArray *pathComponents = [NSArray arrayWithObjects:[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject], @"voice-record.m4a", nil];
-    NSURL *recordingPathURL = [NSURL fileURLWithPathComponents:pathComponents];
-    NSLog(@"%@", recordingPathURL.absoluteString);
-    
-    // Session and recorder
-    AVAudioSession *session = [AVAudioSession sharedInstance];
-    NSError *error = nil;
-    [session setCategory:AVAudioSessionCategoryPlayAndRecord error:&error];
-    
-    if (error) {
-        [error description];
-    } else {
-        NSMutableDictionary *recordSetting = [[NSMutableDictionary alloc] init];
-        [recordSetting setValue:[NSNumber numberWithInt:kAudioFormatMPEG4AAC] forKey:AVFormatIDKey];
-        [recordSetting setValue:[NSNumber numberWithFloat:16000.0] forKey:AVSampleRateKey];
-        [recordSetting setValue:[NSNumber numberWithInt: 1] forKey:AVNumberOfChannelsKey];
-        
-        NSError *error = nil;
-        self.voiceRecorder = [[AVAudioRecorder alloc] initWithURL:recordingPathURL settings:recordSetting error:&error];
-        if (error) {
-            [error description];
-        }
-        self.voiceRecorder.delegate = self;
-        self.voiceRecorder.meteringEnabled = YES;
-    }
+    self.recorder = [[Recorder alloc] initWithFormat:kAudioFormatMPEG4AAC sampleRate:10000 channelNumber:2 fileName:@"file.m4a"];
+    self.recorder.voiceRecorder.delegate = self;
+    self.recorder.voicePlayer.delegate = self;
+    self.recorder.voicePlayer.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,21 +41,25 @@
 
 #pragma mark Button Actions
 - (IBAction)recordButtonTapped:(id)sender {
-    if (self.voicePlayer.playing) {
-        [self.voicePlayer pause];
+    if (self.recorder.voicePlayer.playing) {
+        [self.recorder.voicePlayer pause];
+        [self.recorderView stopSpinningAnimation];
     }
     
-    if (self.voiceRecorder.recording) {
-        [self.voiceRecorder pause];
+    if (self.recorder.voiceRecorder.recording) {
+        [self.recorder.voiceRecorder pause];
         [self.recorderView setRecordButtonTitle:@"Record"];
+        [self.recorderView stopSpinningAnimation];
     } else {
-        [self.voiceRecorder record];
+        [self.recorder.voiceRecorder record];
         [self.recorderView setRecordButtonTitle:@"Pause"];
+        [self.recorderView startSpinningAnimation];
     }
 }
 
 - (IBAction)stopButtonTapped:(id)sender {
-    [self.voiceRecorder stop];
+    [self.recorder.voiceRecorder stop];
+    [self.recorderView stopSpinningAnimation];
     
     AVAudioSession *voiceAudio = [AVAudioSession sharedInstance];
     [voiceAudio setActive:NO error:nil];
@@ -86,10 +67,8 @@
     [self.recorderView setRecordButtonTitle:@"Record"];
 }
 - (IBAction)playButtonTapped:(id)sender {
-    if (!self.voiceRecorder.recording) {
-        self.voicePlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:self.voiceRecorder.url error:nil];
-        self.voicePlayer.delegate = self;
-        [self.voicePlayer play];
+    if (!self.recorder.voiceRecorder.recording) {
+        [self.recorder.voicePlayer play];
     }
 }
 

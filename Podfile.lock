@@ -1,0 +1,12 @@
+PODS:
+  - MMMaterialDesignSpinner (0.2.3)
+
+DEPENDENCIES:
+  - MMMaterialDesignSpinner
+
+SPEC CHECKSUMS:
+  MMMaterialDesignSpinner: 55c80b454f7928d0ed789cc3c456fa06bd6a2f16
+
+PODFILE CHECKSUM: 2d180333050cc38c0e2b3acde22756bb3336a473
+
+COCOAPODS: 1.0.1
