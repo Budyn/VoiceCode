@@ -23,13 +23,20 @@
     self = [super init];
     if (self) {
         // RECORDER
-        _recordingSettings = @{ AVFormatIDKey : [NSNumber numberWithInt:(int)audioFormat],
-                                AVSampleRateKey : [NSNumber numberWithFloat:(float)sampleRate],
-                                AVNumberOfChannelsKey : [NSNumber numberWithInt:(int)channelNumber] };
+        if (audioFormat == (NSInteger)kAudioFormatMPEG4AAC) {
+            fileName = [fileName stringByAppendingString:@".m4a"];
+        }
+        
         NSString *documentsDirectoryPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
         NSArray *pathComponents = [NSArray arrayWithObjects: documentsDirectoryPath, fileName, nil];
         NSURL *recordingPathURL = [NSURL fileURLWithPathComponents:pathComponents];
 
+        _recordingSettings = @{ AVFormatIDKey : [NSNumber numberWithInt:(int)audioFormat],
+                                AVSampleRateKey : [NSNumber numberWithFloat:(float)sampleRate],
+                                AVNumberOfChannelsKey : [NSNumber numberWithInt:(int)channelNumber],
+                                kFileNameKey : fileName,
+                                kFileFormat : [recordingPathURL pathExtension]};
+        
         NSLog(@"%@", recordingPathURL.absoluteString);
         
         self.session = [AVAudioSession sharedInstance];
@@ -53,6 +60,20 @@
 - (instancetype)init {
     self = [self initWithFormat:kAudioFormatMPEG4AAC sampleRate:441000 channelNumber:2 fileName:@"default.m4a"];
     return self;
+}
+
+- (void)addFileDurationToSettings {
+    if (self.voicePlayer) {
+        NSMutableDictionary *tempDict = [NSMutableDictionary dictionary];
+        NSTimeInterval time = self.voicePlayer.duration;
+        [tempDict addEntriesFromDictionary:self.recordingSettings];
+        [tempDict setObject:[NSNumber numberWithFloat:time] forKey:kRecordingDuration];
+        self.recordingSettings = tempDict;
+    }
+}
+
+- (NSDictionary *)getRecordingSettings {
+    return self.recordingSettings;
 }
 
 @end

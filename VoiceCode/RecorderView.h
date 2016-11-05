@@ -10,7 +10,16 @@
 
 @interface RecorderView : UIView
 - (void)setRecordButtonTitle:(NSString *)title;
+- (void)setStopButtonStatus:(BOOL)selected;
+- (void)setDelegateForTextField:(id)delegate;
+- (void)setRecordingInfo:(NSDictionary *)info;
+- (void)clearRecordingInfo;
+
 - (void)startSpinningAnimation;
 - (void)stopSpinningAnimation;
+
+- (void)enableRecording;
+- (void)enableInfo;
+
 
 @end

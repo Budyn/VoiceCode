@@ -13,7 +13,7 @@
 
 #import "NSError+Description.h"
 
-@interface RecordViewController () <AVAudioRecorderDelegate, AVAudioPlayerDelegate>
+@interface RecordViewController () <AVAudioRecorderDelegate, AVAudioPlayerDelegate, UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet RecorderView *recorderView;
 @property (strong, nonatomic) Recorder *recorder;
 
@@ -23,8 +23,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.recorder = [[Recorder alloc] initWithFormat:kAudioFormatMPEG4AAC sampleRate:100 channelNumber:2 fileName:@"sound.m4a"];
-    self.recorder.voiceRecorder.delegate = self;
+    
+    __weak typeof(self)weakSelf = self;
+    [self.recorderView setDelegateForTextField:weakSelf];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,6 +54,9 @@
         [self.recorderView setRecordButtonTitle:@"Pause"];
         [self.recorderView startSpinningAnimation];
     }
+    
+    [self.recorderView setStopButtonStatus:YES];
+    [self.recorderView clearRecordingInfo];
 }
 
 - (IBAction)stopButtonTapped:(id)sender {
@@ -62,18 +66,42 @@
     AVAudioSession *voiceAudio = [AVAudioSession sharedInstance];
     [voiceAudio setActive:NO error:nil];
     
+    NSError *error = nil;
+    self.recorder.voicePlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:self.recorder.voiceRecorder.url error:&error];
+    if (error) {
+        [error fullDescription];
+    }
+    self.recorder.voicePlayer.delegate = self;
+    
+    [self.recorder addFileDurationToSettings];
+    [self.recorderView setRecordingInfo:[self.recorder getRecordingSettings]];
+    [self.recorderView enableInfo];
     [self.recorderView setRecordButtonTitle:@"Record"];
 }
 - (IBAction)playButtonTapped:(id)sender {
     if (!self.recorder.voiceRecorder.recording) {
-        NSError *error = nil;
-        self.recorder.voicePlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:self.recorder.voiceRecorder.url error:&error];
-        if (error) {
-            [error fullDescription];
-        }
-        self.recorder.voicePlayer.delegate = self;
         [self.recorder.voicePlayer play];
     }
+}
+
+#pragma mark UITextFieldDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+    if (textField.text) {
+        self.recorder = [[Recorder alloc] initWithFormat:kAudioFormatMPEG4AAC sampleRate:100 channelNumber:2 fileName:textField.text];
+        self.recorder.voiceRecorder.delegate = self;
+        return YES;
+    }
+    return NO;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    [self.recorderView enableRecording];
+    textField.enabled = NO;
 }
 
 #pragma mark AVAudioPlayerDelegate
