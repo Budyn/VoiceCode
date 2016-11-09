@@ -6,6 +6,7 @@
 //  Copyright © 2016 Budyn&Friends. All rights reserved.
 //
 
+#import <EZAudio/EZAudio.h>
 #import <AVFoundation/AVFoundation.h>
 #import "RecordViewController.h"
 #import "RecorderView.h"
@@ -13,9 +14,14 @@
 
 #import "NSError+Description.h"
 
-@interface RecordViewController () <AVAudioRecorderDelegate, AVAudioPlayerDelegate, UITextFieldDelegate>
+static vDSP_Length const FFTWindowSize = 4096;
+
+@interface RecordViewController () <AVAudioRecorderDelegate, AVAudioPlayerDelegate, UITextFieldDelegate, EZMicrophoneDelegate, EZAudioFFTDelegate>
 @property (strong, nonatomic) IBOutlet RecorderView *recorderView;
 @property (strong, nonatomic) Recorder *recorder;
+
+@property (nonatomic,strong) EZMicrophone *microphone;
+@property (nonatomic, strong) EZAudioFFTRolling *fft;
 
 @end
 
@@ -26,6 +32,16 @@
     
     __weak typeof(self)weakSelf = self;
     [self.recorderView setDelegateForTextField:weakSelf];
+    
+    self.recorderView.timeView.plotType = EZPlotTypeBuffer;
+    self.recorderView.freqView.shouldFill = YES;
+    self.recorderView.freqView.plotType = EZPlotTypeBuffer;
+    self.recorderView.freqView.shouldCenterYAxis = YES;
+
+    self.microphone = [EZMicrophone microphoneWithDelegate:self];
+    self.fft = [EZAudioFFTRolling fftWithWindowSize:FFTWindowSize
+                                         sampleRate:self.microphone.audioStreamBasicDescription.mSampleRate
+                                           delegate:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,7 +67,10 @@
         [self.recorderView stopSpinningAnimation];
     } else {
         [self.recorder.voiceRecorder record];
+        [self.microphone startFetchingAudio];
+        
         [self.recorderView setRecordButtonTitle:@"Pause"];
+        [self.recorderView enableCharts];
         [self.recorderView startSpinningAnimation];
     }
     
@@ -92,7 +111,7 @@
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
     if (textField.text) {
-        self.recorder = [[Recorder alloc] initWithFormat:kAudioFormatMPEG4AAC sampleRate:100 channelNumber:2 fileName:textField.text];
+        self.recorder = [[Recorder alloc] initWithFormat:kAudioFormatMPEG4AAC sampleRate:16000 channelNumber:2 fileName:textField.text];
         self.recorder.voiceRecorder.delegate = self;
         return YES;
     }
@@ -109,6 +128,36 @@
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Finish!" message:@"Player has finished" preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+#pragma mark - EZMicrophoneDelegate
+-(void)    microphone:(EZMicrophone *)microphone
+     hasAudioReceived:(float **)buffer
+       withBufferSize:(UInt32)bufferSize
+ withNumberOfChannels:(UInt32)numberOfChannels
+{
+    //
+    // Calculate the FFT, will trigger EZAudioFFTDelegate
+    //
+    [self.fft computeFFTWithBuffer:buffer[0] withBufferSize:bufferSize];
+    
+    __weak typeof (self) weakSelf = self;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [weakSelf.recorderView.timeView updateBuffer:buffer[0]
+                              withBufferSize:bufferSize];
+    });
+}
+
+#pragma mark - EZAudioFFTDelegate
+- (void)        fft:(EZAudioFFT *)fft
+ updatedWithFFTData:(float *)fftData
+         bufferSize:(vDSP_Length)bufferSize
+{
+    
+    __weak typeof (self) weakSelf = self;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [weakSelf.recorderView.freqView updateBuffer:fftData withBufferSize:(UInt32)bufferSize];
+    });
 }
 
 /*

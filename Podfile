@@ -7,4 +7,5 @@ target 'VoiceCode' do
 
   # Pods for VoiceCode
   pod "MMMaterialDesignSpinner"
+  pod "EZAudio"
 end

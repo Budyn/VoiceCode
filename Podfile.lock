@@ -1,12 +1,22 @@
 PODS:
+  - EZAudio (1.1.5):
+    - EZAudio/Full (= 1.1.5)
+  - EZAudio/Core (1.1.5)
+  - EZAudio/Full (1.1.5):
+    - EZAudio/Core
+    - TPCircularBuffer (= 1.1)
   - MMMaterialDesignSpinner (0.2.3)
+  - TPCircularBuffer (1.1)
 
 DEPENDENCIES:
+  - EZAudio
   - MMMaterialDesignSpinner
 
 SPEC CHECKSUMS:
+  EZAudio: 3b1cb4b6d7ebca68f0c2478576d75940aad4aa99
   MMMaterialDesignSpinner: 55c80b454f7928d0ed789cc3c456fa06bd6a2f16
+  TPCircularBuffer: 4960a919e667280f7f38963d771f45871b64fe62
 
-PODFILE CHECKSUM: 2d180333050cc38c0e2b3acde22756bb3336a473
+PODFILE CHECKSUM: 1f1006b5847d702b1ae983690e9b3cb37b0d4efd
 
 COCOAPODS: 1.0.1

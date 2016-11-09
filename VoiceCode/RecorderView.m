@@ -30,6 +30,7 @@ static NSString * const kFileFormat = @"FileFormatKey";
 @property (weak, nonatomic) IBOutlet UITextField *fileNameTextField;
 @property (weak, nonatomic) IBOutlet UIView *overlayView;
 @property (weak, nonatomic) IBOutlet UIView *secondaryOverlayView;
+@property (weak, nonatomic) IBOutlet UIView *chartOverlayView;
 
 @property (strong, nonatomic) MMMaterialDesignSpinner *spinner;
 
@@ -103,6 +104,19 @@ static NSString * const kFileFormat = @"FileFormatKey";
                      }
                      completion:^(BOOL finished){
                          self.secondaryOverlayView.hidden = NO;
+                     }
+     ];
+}
+
+- (void)enableCharts {
+    [UIView animateWithDuration:1
+                          delay:0.0
+                        options: UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         self.chartOverlayView.alpha = 0;
+                     }
+                     completion:^(BOOL finished){
+                         self.chartOverlayView.hidden = NO;
                      }
      ];
 }
