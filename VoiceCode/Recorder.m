@@ -12,7 +12,7 @@
 @interface Recorder()
 @property (strong, nonatomic) NSDictionary *recordingSettings;
 @property (strong, nonatomic) AVAudioSession *session;
-
+@property (strong, nonatomic) NSURL *recordingPathURL;
 @end
 
 @implementation Recorder
@@ -30,7 +30,7 @@
         NSString *documentsDirectoryPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
         NSArray *pathComponents = [NSArray arrayWithObjects: documentsDirectoryPath, fileName, nil];
         NSURL *recordingPathURL = [NSURL fileURLWithPathComponents:pathComponents];
-
+        self.recordingPathURL = recordingPathURL;
         _recordingSettings = @{ AVFormatIDKey : [NSNumber numberWithInt:(int)audioFormat],
                                 AVSampleRateKey : [NSNumber numberWithFloat:(float)sampleRate],
                                 AVNumberOfChannelsKey : [NSNumber numberWithInt:(int)channelNumber],

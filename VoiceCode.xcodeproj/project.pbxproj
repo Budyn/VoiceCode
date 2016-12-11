@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1558E34B1DFDD9F5008B5C91 /* RSA.m in Sources */ = {isa = PBXBuildFile; fileRef = 1558E34A1DFDD9F5008B5C91 /* RSA.m */; };
 		ADFE9D1C8D208C420D9AFECB /* libPods-VoiceCode.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C431E86003561EC14FAED2B5 /* libPods-VoiceCode.a */; };
 		AF0089E81DCBFA5C00B4087A /* NSError+Description.m in Sources */ = {isa = PBXBuildFile; fileRef = AF0089E71DCBFA5C00B4087A /* NSError+Description.m */; };
 		AF0089EB1DCBFB1700B4087A /* RecorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF0089EA1DCBFB1700B4087A /* RecorderView.m */; };
@@ -22,6 +23,8 @@
 
 /* Begin PBXFileReference section */
 		0868093427F49E89F4138123 /* Pods-VoiceCode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoiceCode.release.xcconfig"; path = "Pods/Target Support Files/Pods-VoiceCode/Pods-VoiceCode.release.xcconfig"; sourceTree = "<group>"; };
+		1558E3491DFDD9F5008B5C91 /* RSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSA.h; sourceTree = "<group>"; };
+		1558E34A1DFDD9F5008B5C91 /* RSA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSA.m; sourceTree = "<group>"; };
 		41405D5DB92B0E4819EB625E /* Pods-VoiceCode.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoiceCode.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VoiceCode/Pods-VoiceCode.debug.xcconfig"; sourceTree = "<group>"; };
 		AF0089E61DCBFA5C00B4087A /* NSError+Description.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+Description.h"; sourceTree = "<group>"; };
 		AF0089E71DCBFA5C00B4087A /* NSError+Description.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+Description.m"; sourceTree = "<group>"; };
@@ -94,6 +97,8 @@
 				AF0089EA1DCBFB1700B4087A /* RecorderView.m */,
 				AF0089F41DCD1A0600B4087A /* Recorder.h */,
 				AF0089F51DCD1A0600B4087A /* Recorder.m */,
+				1558E3491DFDD9F5008B5C91 /* RSA.h */,
+				1558E34A1DFDD9F5008B5C91 /* RSA.m */,
 				AF8A55B21DCA9E920098B5C0 /* Recorder.storyboard */,
 				AF8A55B51DCA9E920098B5C0 /* Assets.xcassets */,
 				AF8A55B71DCA9E920098B5C0 /* LaunchScreen.storyboard */,
@@ -156,7 +161,7 @@
 				TargetAttributes = {
 					AF8A55A51DCA9E920098B5C0 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = AD6M7L74H7;
+						DevelopmentTeam = HU9FKSEQXD;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -245,6 +250,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1558E34B1DFDD9F5008B5C91 /* RSA.m in Sources */,
 				AF0089EB1DCBFB1700B4087A /* RecorderView.m in Sources */,
 				AF8A55AE1DCA9E920098B5C0 /* AppDelegate.m in Sources */,
 				AF0089E81DCBFA5C00B4087A /* NSError+Description.m in Sources */,
@@ -373,7 +379,7 @@
 			baseConfigurationReference = 41405D5DB92B0E4819EB625E /* Pods-VoiceCode.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = AD6M7L74H7;
+				DEVELOPMENT_TEAM = HU9FKSEQXD;
 				INFOPLIST_FILE = VoiceCode/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -387,7 +393,7 @@
 			baseConfigurationReference = 0868093427F49E89F4138123 /* Pods-VoiceCode.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = AD6M7L74H7;
+				DEVELOPMENT_TEAM = HU9FKSEQXD;
 				INFOPLIST_FILE = VoiceCode/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
